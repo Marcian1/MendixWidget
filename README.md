@@ -1,11 +1,37 @@
 # Drag and Drop Widget
 
-> ⚠️ **Note**
+> ⚠️ **Compatibility & Version Guide**
 >
-> Mendix 9.6^ and up use version 3.xx of the widget
->
-> Any other version see
-> [here](https://mendixlabs.github.io/app-services-components/#/web-widgets/drag-and-drop-widget-old)
+> * **Mendix 11**: Use version `4.x.x` (React 19, `@mendix/pluggable-widgets-tools` ^11.x).
+> * **Mendix 10**: Use version `3.x.x` / `4.x.x` (React 18 / Node 18+).
+> * **Mendix 9 (9.6+)**: Use version `3.x.x` of the widget.
+> * **Mendix 8 & older**: See the legacy documentation [here](https://mendixlabs.github.io/app-services-components/#/web-widgets/drag-and-drop-widget-old).
+
+## Version Upgrade & Compatibility Summary
+
+### Upgrading from Mendix 9 to Mendix 10 Compatibility
+When migrating this widget from Mendix 9 to Mendix 10, the following core changes were required:
+
+1. **Pluggable Widget Tools & Build Infrastructure**:
+   - Upgraded `@mendix/pluggable-widgets-tools` from older Webpack-based toolchains to `^10.x.x` (modern Rollup/bundler configurations).
+   - Bumped Node engine requirement from Node 14/16 to Node 18+ / 20+.
+2. **React 18 Alignment**:
+   - Mendix 10 transitioned the client web runtime from React 17 to **React 18**.
+   - Updated `@types/react`, `@types/react-dom`, and React runtime dependencies to React 18.
+   - Ensured hook behavior (`useRef`, `useEffect`, `useMemo`) and `DndProvider` lifecycle handles React 18's Strict Mode and concurrent rendering without unexpected teardowns.
+3. **React-DnD & Backend Updates**:
+   - Upgraded `react-dnd`, `dnd-core`, `react-dnd-html5-backend`, and `react-dnd-touch-backend` to **v16+**.
+   - Updated multi-backend packages (`dnd-multi-backend`, `react-dnd-multi-backend`, `react-dnd-preview`) to eliminate deprecated React lifecycle warnings while preserving touch and keyboard navigation support.
+4. **Widget XML & Type Definitions**:
+   - Regenerated TypeScript typings (`DraganddropwidgetProps.d.ts`) matching the Mendix 10 Pluggable Widget APIs (`ListValue`, `EditableValue`, `ActionValue`).
+   - Aligned `Draganddropwidget.xml` and `package.xml` module paths with Studio Pro 10 expectations.
+   - Updated `Draganddropwidget.editorConfig.ts` to match Studio Pro 10 preview and structure mode APIs.
+
+### Upgrading to Mendix 11 Compatibility (v4.0.0)
+1. **Tooling**: Upgraded `@mendix/pluggable-widgets-tools` to `^11.15.0` with Node `>=20` and build compatibility hooks.
+2. **React 19**: Configured resolutions/overrides for `react` and `react-dom` `^19.0.0` to match Mendix 11 client runtime.
+3. **Package Distribution**: Packaged distribution release under `dist/4.0.0/mendix.Draganddropwidget.mpk`.
+
 
 This is a complete rewrite of the Drag and Drop Widget.
 
