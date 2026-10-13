@@ -1,0 +1,10 @@
+.dnd_draggable_container_not_dragging {
+    .dnd_draggable_item {
+        cursor: grab;
+    }
+}
+.dnd_draggable_container_dragging {
+    .dnd_draggable_item_with_hover_space {
+        cursor: grabbing !important; //Sorry 🪛
+    }
+}

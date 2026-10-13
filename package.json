@@ -1,0 +1,57 @@
+{
+    "name": "draganddropwidget",
+    "widgetName": "Draganddropwidget",
+    "version": "4.0.0",
+    "description": "Drag and Drop Widget for Mendix 11",
+    "copyright": "2026 Mendix Technology BV",
+    "author": "ahwelgemoed",
+    "engines": {
+        "node": ">=20"
+    },
+    "config": {
+        "projectPath": "./tests/testProject/",
+        "mendixHost": "http://localhost:8080",
+        "developmentPort": 3000
+    },
+    "packagePath": "mendix",
+    "scripts": {
+        "start": "pluggable-widgets-tools start:server",
+        "dev": "pluggable-widgets-tools start:web",
+        "build": "pluggable-widgets-tools build:web",
+        "lint": "pluggable-widgets-tools lint",
+        "lint:fix": "pluggable-widgets-tools lint:fix",
+        "prerelease": "npm run lint",
+        "release": "pluggable-widgets-tools release:web",
+        "postinstall": "node -e \"try { const p = './node_modules/@mendix/pluggable-widgets-tools/package.json'; const j = require(p); j.engines.node = '>=22.18.0'; require('fs').writeFileSync(p, JSON.stringify(j, null, 2)); } catch(e){}\""
+    },
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@mendix/pluggable-widgets-tools": "^11.15.0",
+        "@types/big.js": "^6.0.2"
+    },
+    "dependencies": {
+        "classnames": "^2.5.1",
+        "dnd-core": "^16.0.1",
+        "dnd-multi-backend": "^9.0.0",
+        "framer-motion": "^12.4.7",
+        "nanoid": "^3.3.8",
+        "react-dnd": "^16.0.1",
+        "react-dnd-accessible-backend": "^2.1.0",
+        "react-dnd-html5-backend": "^16.0.1",
+        "react-dnd-multi-backend": "^9.0.0",
+        "react-dnd-preview": "^9.0.0",
+        "react-dnd-touch-backend": "^16.0.1"
+    },
+    "resolutions": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0"
+    },
+    "overrides": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0"
+    }
+}
